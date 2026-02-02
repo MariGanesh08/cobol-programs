@@ -1,0 +1,34 @@
+       IDENTIFICATION DIVISION.
+         PROGRAM-ID. REVERSE-NUMBER.
+         AUTHOR MARI.
+  
+       ENVIRONMENT DIVISION.
+         CONFIGURATION SECTION.
+           SOURCE-COMPUTER. IBM-3278.
+           OBJECT-COMPUTER. IBM-3278.
+    
+       DATA DIVISION.
+         WORKING-STORAGE SECTION.
+         01 NUM       PIC 9(5).
+         01 TEMP      PIC 9(5).
+         01 DIGIT     PIC 9(1).
+         01 RESULT    PIC 9(5).
+
+       PROCEDURE DIVISION.
+           DISPLAY "REVERSE-NUMBER PROGRAM RUNNING...".
+    
+           ACCEPT NUM.
+           MOVE NUM TO TEMP.
+    
+           PERFORM UNTIL TEMP = 0
+             COMPUTE DIGIT = FUNCTION MOD(TEMP,10)
+             COMPUTE RESULT = (RESULT*10)+DIGIT
+             COMPUTE TEMP = TEMP / 10
+      
+           END-PERFORM.
+    
+           DISPLAY RESULT.
+    
+  
+    
+           STOP RUN.

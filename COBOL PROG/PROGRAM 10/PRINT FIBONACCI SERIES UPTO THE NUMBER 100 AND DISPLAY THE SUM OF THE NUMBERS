@@ -1,0 +1,32 @@
+       IDENTIFICATION DIVISION.
+         PROGRAM-ID. FIBONACCI-SERIES.
+         AUTHOR MARI.
+  
+       ENVIRONMENT DIVISION.
+         CONFIGURATION SECTION.
+           SOURCE-COMPUTER. IBM-3278.
+           OBJECT-COMPUTER. IBM-3278.
+    
+       DATA DIVISION.
+         WORKING-STORAGE SECTION.
+         01 NUM1 PIC 9(3).
+         01 NUM2 PIC 9(3).
+         01 NUM3 PIC 9(3).
+         01 ITE  PIC 9(3).
+         01 TOTAL PIC 9(3).
+       PROCEDURE DIVISION.
+           DISPLAY "FIBONACCI-SERIES-PROGRAM RUNNING...".
+    
+           MOVE 0 TO NUM1.
+           MOVE 1 TO NUM2.
+           DISPLAY NUM1.
+           PERFORM UNTIL NUM2 > 100
+             DISPLAY NUM2
+             COMPUTE TOTAL = TOTAL + NUM2 
+             COMPUTE NUM3 = NUM1 + NUM2
+             MOVE NUM2 TO NUM1
+             MOVE NUM3 TO NUM2
+           END-PERFORM.
+    
+           DISPLAY "TOTAL :" TOTAL.
+           STOP-RUN.

@@ -1,0 +1,36 @@
+       IDENTIFICATION DIVISION.
+         PROGRAM-ID. GREATEST-OF-THREE.
+         AUTHOR MARI.
+  
+       ENVIRONMENT DIVISION.
+         CONFIGURATION SECTION.
+           SOURCE-COMPUTER. IBM-3278.
+           OBJECT-COMPUTER. IBM-3278.
+    
+       DATA DIVISION.
+         WORKING-STORAGE SECTION.
+         01 NUM1 PIC 9(4).
+         01 NUM2 PIC 9(4).
+         01 NUM3 PIC 9(4).
+       PROCEDURE DIVISION.
+           DISPLAY "GREATEST-OF-THREE-PROGRAM RUNNING...".
+    
+           ACCEPT NUM1.
+           ACCEPT NUM2.
+           ACCEPT NUM3.
+    
+           IF NUM1 > NUM2
+             IF NUM1 >NUM3
+               DISPLAY 'NUM1 : 'NUM1 ' IS THE GREATEST'
+             ELSE
+               DISPLAY 'NUM3 : 'NUM3 ' IS THE GREATEST'
+             END-IF
+           ELSE
+             IF NUM2 > NUM3
+               DISPLAY 'NUM2 : 'NUM2 ' IS THE GREATEST'
+             ELSE
+             DISPLAY 'NUM3 : 'NUM3 ' IS THE GREATEST'
+             END-IF
+           END-IF.
+  
+           STOP-RUN.

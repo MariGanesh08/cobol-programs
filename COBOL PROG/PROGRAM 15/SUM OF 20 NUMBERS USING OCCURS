@@ -1,0 +1,29 @@
+       IDENTIFICATION DIVISION.
+         PROGRAM-ID. OCCURS-PROGRAM.
+         AUTHOR MARI.
+  
+       ENVIRONMENT DIVISION.
+         CONFIGURATION SECTION.
+           SOURCE-COMPUTER. IBM-3278.
+           OBJECT-COMPUTER. IBM-3278.
+    
+       DATA DIVISION.
+         WORKING-STORAGE SECTION.
+         01 NUM OCCURS 20 TIMES PIC 9(3).
+      
+         01 ITE PIC 9(2).
+         01 TOTAL PIC 9(5).
+
+       PROCEDURE DIVISION.
+           DISPLAY "OCCURS PROGRAM RUNNING...".
+    
+           PERFORM VARYING ITE FROM 1 BY 1 UNTIL ITE > 20
+             ACCEPT NUM(ITE)
+      
+             COMPUTE TOTAL = TOTAL + NUM(ITE)
+      
+           END-PERFORM.
+    
+           DISPLAY TOTAL.
+    
+           STOP-RUN.

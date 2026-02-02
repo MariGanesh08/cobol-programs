@@ -1,0 +1,32 @@
+       IDENTIFICATION DIVISION.
+         PROGRAM-ID. CONCATENATION-PROGRAM.
+         AUTHOR MARI.
+  
+       ENVIRONMENT DIVISION.
+         CONFIGURATION SECTION.
+           SOURCE-COMPUTER. IBM-3278.
+           OBJECT-COMPUTER. IBM-3278.
+    
+       DATA DIVISION.
+         WORKING-STORAGE SECTION.
+         01 STR1 PIC A(5).
+         01 STR2 PIC A(5).
+         01 RESULT PIC A(10).
+         01 COUNTER PIC 9(2).
+       PROCEDURE DIVISION.
+           DISPLAY "CONCATENATION-PROGRAM RUNNING...".
+    
+           ACCEPT STR1.
+           ACCEPT STR2.
+    
+           STRING STR1 DELIMITED BY SIZE
+                  STR2 DELIMITED BY SIZE
+                  INTO RESULT
+           
+           END-STRING.
+    
+           INSPECT RESULT TALLYING COUNTER FOR CHARACTERS BEFORE SPACE.
+           DISPLAY RESULT.
+           DISPLAY COUNTER.
+    
+           STOP-RUN.

@@ -1,0 +1,39 @@
+       IDENTIFICATION DIVISION.
+         PROGRAM-ID. PRIME-NUMBER-CHECKER.
+         AUTHOR MARI.
+  
+       ENVIRONMENT DIVISION.
+         CONFIGURATION SECTION.
+           SOURCE-COMPUTER. IBM-3278.
+           OBJECT-COMPUTER. IBM-3278.
+    
+       DATA DIVISION.
+         WORKING-STORAGE SECTION.
+         01 NUM        PIC 9(3).
+         01 DIVISOR    PIC 9(3).
+         01 REM PIC 9(3).
+         01 IS-PRIME   PIC X VALUE 'Y'.
+
+       PROCEDURE DIVISION.
+           DISPLAY "PRIME NUMBERS FROM 1 TO 200:".
+
+           PERFORM VARYING NUM FROM 2 BY 1 UNTIL NUM > 200
+               MOVE 'Y' TO IS-PRIME
+
+               PERFORM VARYING DIVISOR FROM 2 BY 1
+                   UNTIL DIVISOR >= NUM
+                      OR IS-PRIME = 'N'
+
+                   COMPUTE REM = FUNCTION MOD(NUM, DIVISOR)
+
+                   IF REM = 0
+                       MOVE 'N' TO IS-PRIME
+                   END-IF
+               END-PERFORM
+
+               IF IS-PRIME = 'Y'
+                   DISPLAY NUM
+               END-IF
+           END-PERFORM.
+
+           STOP RUN.
